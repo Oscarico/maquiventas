@@ -21,11 +21,7 @@ export const HomePage = () => {
       <section className="flex flex-col md:flex-row items-center justify-between px-4 md:px-12 py-12 bg-white">
         <Carousel className="w-full max-w-6xl">
           <CarouselContent>
-            {[
-              Banner1,
-              Banner2,
-              Banner3,
-            ].map((src, index) => (
+            {[Banner1, Banner2, Banner3].map((src, index) => (
               <CarouselItem key={index}>
                 <div className="p-1">
                   <Card className="overflow-hidden rounded-2xl shadow-md">
@@ -64,27 +60,37 @@ export const HomePage = () => {
 
       {/* ===== SECCIÓN 3 ===== */}
       <section className="flex flex-col md:flex-row items-center justify-between px-8 md:px-16 py-20 bg-white">
-        <div className="md:w-1/2 mb-10 md:mb-0 py-10 px:64"  style={{
-    backgroundImage: `url("https://maquiventas.com/wp-content/uploads/2023/09/fondo-laser.jpg")`,
-  }}>
+        <div
+          className="md:w-1/2 mb-10 md:mb-0 py-10 px:64"
+          style={{
+            backgroundImage: `url("https://maquiventas.com/wp-content/uploads/2023/09/fondo-laser.jpg")`,
+          }}
+        >
           <p className="text-base text-center text-white mb-3">
-            Máquina cortadora de lámina CNC de 
+            Máquina cortadora de lámina CNC de
           </p>
           <h2 className="text-4xl font-semibold text-center text-white mb-4 text-[#004f84]">
             Corte Láser de Fibra
           </h2>
           <p className="text-base text-center text-white mb-3">
             Se destaca en el corte preciso de complejos e intrincados contornos.
-            Diseño de ingeniería industrial perfecto y más acorde con el hombre-máquina.
-            Adapta para la industria del procesamiento de lámina metálica.
+            Diseño de ingeniería industrial perfecto y más acorde con el
+            hombre-máquina. Adapta para la industria del procesamiento de lámina
+            metálica.
           </p>
 
-          <Link to={"/cortadoras-laser"} className="bg-gray-800 text-white px-6 py-3 rounded-xl hover:bg-gray-900 transition">
+          <Link
+            to={"/cortadoras-laser"}
+            className="bg-gray-800 text-white px-6 py-3 rounded-xl hover:bg-gray-900 transition"
+          >
             Más Información
           </Link>
         </div>
         <div className="md:w-1/2 flex justify-center">
-            <img src="https://maquiventas.com/wp-content/uploads/2023/06/cortadora-laser-impresion-ok-300x300.png" alt="" />
+          <img
+            src="https://maquiventas.com/wp-content/uploads/2023/06/cortadora-laser-impresion-ok-300x300.png"
+            alt=""
+          />
         </div>
       </section>
 
@@ -137,20 +143,23 @@ export const HomePage = () => {
           <p className="text-lg text-center mb-4">
             Contamos con sucursales en el Estado de México y Querétaro.
           </p>
-          <Link to={"/sucursales"} className="bg-transparent border-[#004f84] text-[#004f84] flex-1 px-6 py-3 rounded-xl hover:bg-[#2586c7] transition">
+          <Link
+            to={"/sucursales"}
+            className="bg-transparent border-[#004f84] text-[#004f84] flex-1 px-6 py-3 rounded-xl hover:bg-[#2586c7] transition"
+          >
             Ver Sucursales
           </Link>
         </div>
         <div className="md:w-1/2 flex justify-center">
           <iframe
-            width="550"
-            height="309"
+            width={550}
+            height={309}
             src="https://www.youtube.com/embed/mdMFcCiBU8w"
             title="MAQUIVENTAS"
-            frameborder="0"
+            frameBorder={0}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen={true}
           ></iframe>
         </div>
       </section>
@@ -192,12 +201,11 @@ export const HomePage = () => {
       </section>
 
       {/* ===== SECCIÓN 9 ===== */}
-<section className="flex items-center justify-center px-4 md:px-16 py-16 bg-white min-h-screen">
-  <div className="w-full max-w-2xl">
-    <ContactForm />
-  </div>
-</section>
-
+      <section className="flex items-center justify-center px-4 md:px-16 py-16 bg-white min-h-screen">
+        <div className="w-full max-w-2xl">
+          <ContactForm />
+        </div>
+      </section>
     </div>
   );
 };

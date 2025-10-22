@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Icon } from "@iconify/react";
 
 export default function ContactForm() {
@@ -10,12 +10,12 @@ export default function ContactForm() {
     mensaje: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Datos enviados:", formData);
     alert("Mensaje enviado correctamente. ¡Gracias por contactarnos!");
@@ -27,29 +27,25 @@ export default function ContactForm() {
       mensaje: "",
     });
   };
-  
+
   return (
-    <>
-        <section className="py-14 px-6 bg-white text-gray-800">
-    {/* Encabezado */}
-        <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-[#004F84] mb-2">
-            Contáctanos
-          </h2>
-          <p className="text-gray-600 text-xl">
-            Escríbenos y nos pondremos en contacto de inmediato contigo
-          </p>
-        </div>
+    <section className="py-14 px-6 bg-white text-gray-800">
+      {/* Encabezado */}
+      <div className="text-center mb-8">
+        <h2 className="text-4xl font-bold text-[#004F84] mb-2">Contáctanos</h2>
+        <p className="text-gray-600 text-xl">
+          Escríbenos y nos pondremos en contacto de inmediato contigo
+        </p>
+      </div>
 
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-8">
-
         {/* Formulario */}
         <form
           onSubmit={handleSubmit}
           className="space-y-5 text-gray-700"
           autoComplete="off"
         >
-          {/* Nombre y Apellido */}
+          {/* Nombre */}
           <div>
             <label className="block mb-2 font-medium">Nombre / Apellido</label>
             <input
@@ -111,7 +107,7 @@ export default function ContactForm() {
               value={formData.mensaje}
               onChange={handleChange}
               required
-              rows="4"
+              rows={4}
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-500 outline-none resize-none"
               placeholder="Escribe tu mensaje aquí..."
             ></textarea>
@@ -130,6 +126,5 @@ export default function ContactForm() {
         </form>
       </div>
     </section>
-    </>
-  )
+  );
 }
